@@ -1,0 +1,23 @@
+{
+  "name": "theirc-php5fpm",
+  "version": "0.2.0",
+  "author": "Samual Laakso <samual.laakso@rescue.org>",
+  "summary": "Component module used to manipulate the PHP5-FPM FastCGI processor.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/theirc-ops/php5fpm.git",
+  "project_page": "https://github.com/theirc-ops/php5fpm",
+  "issues_url": "https://github.com/theirc-ops/php5fpm/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04"
+      ]
+    }
+}

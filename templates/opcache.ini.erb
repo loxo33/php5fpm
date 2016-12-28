@@ -1,0 +1,10 @@
+; configuration for php ZendOpcache module
+; priority=05
+opcode.enable=1
+opcache.enable_cli=1
+zend_extension=opcache.so
+opcache.memory_consumption=512
+opcache.max_accelerated_files=4000
+opcache_revalidate_freq=300
+opcache.error_log=/var/log/php5/opcache.err
+opcache.log_verbosity_level=4

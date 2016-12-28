@@ -1,0 +1,25 @@
+[<%= @php_name %>]
+listen = 127.0.0.1:<%= @php_port %>
+listen.allowed_clients = 127.0.0.1
+user = www-data
+group = www-data
+<% if @php_newrelic_appname != 'UNSET' -%>php_value[newrelic.appname] = <%= @php_newrelic_appname %><% end %>
+pm = dynamic
+pm.max_children = <%= (1.2 * (@memorysize_mb.to_i) / 256).to_i %>
+pm.start_servers = <%= ((1.2 * (@memorysize_mb.to_i) / 256) / 4).to_i %>
+pm.min_spare_servers = <%= ((1.2 * (@memorysize_mb.to_i) / 256) / 4).to_i %>
+pm.max_spare_servers = <%= ((1.2 * (@memorysize_mb.to_i) / 256) / 2).to_i %>
+pm.max_requests = 1000
+ping.path = <%= @php_ping_path %>
+pm.status_path = <%= @php_status_path %>
+listen.backlog = -1
+request_terminate_timeout = 120s
+request_slowlog_timeout = 30s
+slowlog = /var/log/$pool.log.slow
+rlimit_files = 1024
+rlimit_core = unlimited
+catch_workers_output = yes
+env[HOSTNAME] = $HOSTNAME
+env[TMP] = /tmp
+env[TMPDIR] = /tmp
+env[TEMP] = /tmp
